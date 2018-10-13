@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if students %}
+
+    <table class="table table-dark">
+        <tr>
+            <th>Roll </th>
+            <th>Name</th>
+        </tr>
+        {% for std in students %}
+        <tr>
+            <td>{{ std.roll }}</td>
+            <td><a href="{% url 'student-detail' std.roll  %}" >{{ std.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h1> No student found </h1>
+    {% endif %}
+
+{% endblock %}
